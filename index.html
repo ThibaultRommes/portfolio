@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Thibault ROMMES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">ACCUEIL</a>
+            <a href="projets.html">PROJETS</a>
+            <a href="competences.html">COMPÉTENCES</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Thibault ROMMES</h1>
+    </section>
+
+    <section class="presentation">
+    <img src="photo_ID.jpg" alt="Photo Thibault Rommes">
+    
+    <div class="bio-card">
+        <h2>Étudiant en Réseaux & Télécommunications</h2>
+        <p>
+            Passionné par les infrastructures réseaux, la cybersécurité et l'IOT, je suis actuellement en 
+            2ème année de BUT R&T à l'IUT de Nice Côte d'Azur. <br><br>
+            À travers ce portfolio, découvrez mes projets techniques (Réseaux, Télécommunications, Cybersécurité)
+            et l'évolution de mes compétences tout au long de mon parcours.
+        </p>
+        <div class="stage-info">
+            <strong>À la recherche d'une alternance</strong><br>
+            <span>Pour l'année scolaire 2026 - 2027</span>
+        </div>
+        
+        <a href="ROMMES_Thibault_CV.pdf" target="_blank" class="btn-cv">
+            Voir mon CV <span>&#8681;</span>
+        </a>
+        <div class="certification-box">
+            <div class="certif-content">
+                <img src="img/CCNA.png" alt="Badge Cisco CCNA" class="certif-badge">
+        
+                <div class="certif-info">
+                    <h3>Certification Cisco CCNA</h3>
+                    <p>Obtenue le 12 décembre 2025</p>
+                    <a href="https://www.credly.com/badges/a1b147fb-0be0-4e1d-bf5a-73165fb1c66c" target="_blank" class="btn-credly">
+                    Vérifié sur Credly
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+        // 1. Quand la page est chargée, on la fait apparaître
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // 2. Quand on clique sur un lien, on fait disparaître la page avant de changer
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const target = this.getAttribute('href');
+                // On vérifie que ce n'est pas un lien externe ou un mailto
+                if (target && !target.startsWith('#') && !target.startsWith('mailto:') && this.target !== '_blank') {
+                    e.preventDefault(); // On bloque le changement immédiat
+                    document.body.classList.remove('loaded'); // On lance le fondu vers le blanc
+                    setTimeout(() => {
+                        window.location.href = target; // On change de page après 400ms
+                    }, 400); 
+                }
+            });
+        });
+    </script>
+</body>
+</html>

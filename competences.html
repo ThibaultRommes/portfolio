@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Compétences</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- STYLES SPÉCIFIQUES AUX BULLES (Timeline) --- */
+        
+        main {
+            position: relative;
+            padding-bottom: 120px; 
+            overflow-x: hidden;
+        }
+
+        /* Ligne centrale verticale */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 320px; /* Ajusté pour les grosses bulles */
+            bottom: 50px;
+            width: 4px;
+            background-color: #e0e0e0;
+            transform: translateX(-50%);
+            z-index: 0;
+            border-radius: 2px;
+        }
+
+        /* Conteneur global des compétences */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px; /* Plus d'espace vertical */
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- DESIGN DE LA BULLE (MODE XXL) --- */
+        .bubble-wrapper {
+            position: relative;
+            width: 420px; /* TAILLE AUGMENTÉE */
+            height: 420px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 6px solid #3c096c; /* Bordure plus épaisse */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+
+        /* Effet au survol de la bulle */
+        .bubble-wrapper:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(60, 9, 108, 0.3);
+            border-color: #5a189a;
+        }
+
+        /* L'image à l'intérieur */
+        .bubble-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .bubble-wrapper:hover .bubble-image {
+            transform: scale(1.1);
+            filter: blur(4px);
+        }
+
+        /* --- LE TEXTE CACHÉ (Overlay) --- */
+        .bubble-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px; /* Plus de padding */
+            text-align: center;
+            opacity: 0;
+            background: rgba(60, 9, 108, 0.94); /* Fond violet un peu plus opaque */
+            color: white;
+            transition: opacity 0.3s ease;
+        }
+
+        .bubble-wrapper:hover .bubble-content {
+            opacity: 1;
+        }
+
+        .bubble-content h2 {
+            font-size: 1.7rem; /* Titre plus gros */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .bubble-content ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.05rem; /* Liste plus lisible */
+            line-height: 1.6;
+        }
+
+        .bubble-content li {
+            margin-bottom: 6px;
+        }
+
+        /* --- DISPOSITION EN QUINCONCE --- */
+        
+        /* GAUCHE */
+        .skill-item:nth-child(odd) {
+            transform: translateX(-300px); /* Écartement augmenté */
+        }
+        .skill-item:nth-child(odd) .bubble-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -70px; /* Connecteur plus long */
+            width: 70px;
+            height: 4px;
+            background-color: #3c096c;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* DROITE */
+        .skill-item:nth-child(even) {
+             transform: translateX(300px); /* Écartement augmenté */
+        }
+        .skill-item:nth-child(even) .bubble-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -70px; /* Connecteur plus long */
+            width: 70px;
+            height: 4px;
+            background-color: #3c096c;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 900px) {
+            .timeline-line { display: none; }
+            
+            .skill-item:nth-child(odd),
+            .skill-item:nth-child(even) {
+                transform: translateX(0);
+            }
+            
+            .skill-item:nth-child(odd) .bubble-wrapper::after,
+            .skill-item:nth-child(even) .bubble-wrapper::before {
+                display: none;
+            }
+
+            /* On réduit la taille sur mobile sinon ça dépasse */
+            .bubble-wrapper {
+                width: 290px;
+                height: 290px;
+            }
+            .bubble-content h2 { font-size: 1.4rem; }
+            .bubble-content ul { font-size: 0.9rem; }
+
+            .skills-container {
+                gap: 50px;
+                margin-top: 40px;
+            }
+        }
+
+        /* --- TRANSITION PAGE --- */
+        body { opacity: 0; transition: opacity 0.4s ease-in-out; }
+        body.loaded { opacity: 1; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">ACCUEIL</a>
+            <a href="projets.html">PROJETS</a>
+            <a href="competences.html" class="active">COMPÉTENCES</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="intro-card">
+            <h1>Mes compétences</h1>
+            <p>
+                Retrouvez ici l'ensemble de mes compétences techniques et transversales,<br>
+                acquises au cours de ma formation et de mes expériences personnelles.
+            </p>
+        </div>
+
+        <div class="timeline-line"></div>
+
+        <div class="skills-container">
+
+            <div class="skill-item">
+                <div class="bubble-wrapper">
+                    <img src="img/reseaux.jpg" alt="Réseaux Cisco" class="bubble-image">
+                    
+                    <div class="bubble-content">
+                        <h2>Réseaux</h2>
+                        <ul>
+                            <li>- Configuration d'équipements actifs Cisco</li>
+                            <li>- Connaissances en architecture réseau</li>
+                            <li>- Connaissances des protocoles des différentes couches</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="bubble-wrapper">
+                    <img src="img/cybersecurite.jpg" alt="Cyber" class="bubble-image">
+                    
+                    <div class="bubble-content">
+                        <h2>Cybersécurité</h2>
+                        <ul>
+                            <li>- Bases du pentesting</li>
+                            <li>- Scan de réseaux</li>
+                            <li>- Analyse de vulnérabilités</li>
+                            <li>- Rapport d'audit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="bubble-wrapper">
+                    <img src="img/developpement.jpg" alt="Dev" class="bubble-image">
+                    
+                    <div class="bubble-content">
+                        <h2>Développement</h2>
+                        <ul>
+                            <li>- Python</li>
+                            <li>- Web (HTML/CSS/JS/PHP)</li>
+                            <li>- Bash linux</li>
+                            <li>- Java</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="bubble-wrapper">
+                    <img src="img/telecoms.jpg" alt="Telecom" class="bubble-image">
+                    
+                    <div class="bubble-content">
+                        <h2>Télécommunications</h2>
+                        <ul>
+                            <li>- Traitement du signal</li>
+                            <li>- Chaines de transmission</li>
+                            <li>- Fibre optique</li>
+                            <li>- Mesures RF </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-item">
+                <div class="bubble-wrapper">
+                    <img src="img/lora.jpg" alt="Outils" class="bubble-image">
+                    
+                    <div class="bubble-content">
+                        <h2>IoT</h2>
+                        <ul>
+                            <li>- Programmation de cartes LoRa</li>
+                            <li>- Mesures : débit, consommation, portée</li>
+                            <li>- Systèmes de transmissions</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener('load', () => { document.body.classList.add('loaded'); });
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const target = this.getAttribute('href');
+                if (target && !target.startsWith('#') && !target.startsWith('mailto:') && this.target !== '_blank') {
+                    e.preventDefault();
+                    document.body.classList.remove('loaded');
+                    setTimeout(() => { window.location.href = target; }, 400); 
+                }
+            });
+        });
+    </script>
+</body>
+</html>
