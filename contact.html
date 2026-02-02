@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - Thibault ROMMES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">ACCUEIL</a>
+            <a href="projets.html">PROJETS</a>
+            <a href="competences.html">COMPÉTENCES</a>
+            <a href="contact.html" class="active">CONTACT</a>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <div class="outro-card">
+            <h1>Merci de votre visite !</h1>
+            <p>
+                J'espère que la découverte de mon portfolio vous a plu. <br>
+                Je reste à votre entière disposition pour échanger sur mon parcours, 
+                mes projets ou pour une éventuelle opportunité d'alternance.
+            </p>
+
+            <div class="divider"></div>
+
+            <h2>Me contacter</h2>
+            <p class="status">Recherche active : Alternance (septembre 2026 - septembre 2027)</p>
+            
+            <div class="contact-actions">
+                <a href="mailto:thibault.rommes@etu.univ-cotedazur.fr" target="_blank" class="btn-contact">
+                    📧 Envoyer un mail
+                </a>
+    
+                <a href="ROMMES_Thibault_CV.pdf" target="_blank" class="btn-contact">
+                    📄 Télécharger mon CV
+                </a>
+            </div>
+            
+            <div class="footer-note">
+                <p>&copy; 2026 Thibault Rommes - Étudiant BUT R&T</p>
+            </div>
+        </div>
+    </main>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+<script>
+        // 1. Quand la page est chargée, on la fait apparaître
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // 2. Quand on clique sur un lien, on fait disparaître la page avant de changer
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const target = this.getAttribute('href');
+                // On vérifie que ce n'est pas un lien externe ou un mailto
+                if (target && !target.startsWith('#') && !target.startsWith('mailto:') && this.target !== '_blank') {
+                    e.preventDefault(); // On bloque le changement immédiat
+                    document.body.classList.remove('loaded'); // On lance le fondu vers le blanc
+                    setTimeout(() => {
+                        window.location.href = target; // On change de page après 400ms
+                    }, 400); 
+                }
+            });
+        });
+    </script>
+</body>
+</body>
+</html>
