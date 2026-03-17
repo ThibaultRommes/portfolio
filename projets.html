@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes projets</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .grid-projets {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 40px 60px;
+        }
+
+        .projet {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            height: 350px;
+            transition: transform 0.3s ease;
+        }
+
+        .projet:hover {
+            transform: scale(1.03);
+        }
+
+        .projet img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .projet .titre {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .projet .description {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .projet:hover .description {
+            opacity: 0;
+			pointer-events: none;
+        }
+
+        .projet a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .description h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">ACCUEIL</a>
+            <a href="projets.html">PROJETS</a>
+            <a href="competences.html">COMPÉTENCES</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+<main>
+    <div class="intro-card">
+        <h1>Mes projets</h1>
+        <p>
+            Cette section regroupe mes projets professionnels et personnels classés par domaine d'expertise.<br>
+            Ils témoignent de mes progrès en Réseaux, Télécommunications et Développement.
+        </p>
+    </div>
+
+    <h2 class="categorie-titre">Réseaux & Cybersécurité</h2>
+    <div class="grid-projets">
+
+        <div class="projet">
+            <img src="img/sae21.jpg" alt="SAE21 - Simulation Packet Tracer">
+            <div class="titre">Simulation d’un réseau d’entreprise</div>
+            <div class="description">
+                <h3>Simulation d’un réseau d’entreprise</h3><br>
+                <p>
+                    Ce projet consistait à modéliser virtuellement une infrastructure réseau complète pour une PME. 
+                    L'objectif était de valider la logique de configuration (VLANs, routage, pare-feu ASA, NAT) dans un environnement sécurisé et simulé.
+                    <br><br>
+                    L’intégralité de la maquette a été réalisée sous Cisco Packet Tracer, permettant de tester les interactions réseaux sans déploiement physique.
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Modélisation d'architecture réseau</li>
+                    <li>Simulation et tests virtuels (Cisco Packet Tracer)</li>
+                    <li>Configuration logique des équipements</li>
+                </ul><br>
+                <p><a href="preuves/sae21.jpg" target="_blank">📎 Aperçu : topologie</a></p>
+            </div>
+        </div>
+        
+        <div class="projet">
+            <img src="img/sae33.jpg" alt="Infrastructure Réseau Réelle">
+            <div class="titre">Conception d'un réseau sécurisé multisite</div>
+            <div class="description">
+                <h3>Conception d'un réseau sécurisé multisite</h3><br>
+                <p>
+                    Ce projet a consisté à déployer physiquement une infrastructure réseau complète. 
+                    L'objectif était de configurer des équipements réels (routeurs, switchs, pare-feu ASA) pour interconnecter plusieurs sites distants, tout en assurant un accès sécurisé vers l'extérieur.
+                <br><br>
+                    La dimension sécurité était centrale. J'ai mis en place des tunnels VPN (IPSec/SSL) pour les connexions inter-sites et nomades, ainsi qu'une DMZ pour isoler les services critiques. 
+                    La robustesse du réseau a été assurée par des protocoles de redondance (HSRP, STP) et de routage dynamique (OSPF).
+                </p><br>
+                <strong>Compétences validées :</strong>
+                <ul><br>
+                    <li>Administration sur matériel réel (Cisco ASA, Switchs L2/L3)</li>
+                    <li>Interconnexion de sites & Routage dynamique (OSPF)</li>
+                    <li>Sécurité avancée (VPN IPSec/SSL, Firewalling, DMZ)</li>
+                    <li>Redondance et haute disponibilité (HSRP, STP)</li>
+                </ul><br>
+                <p><a href="preuves/sae33.jpg" target="_blank">📎 Aperçu : plan d'adressage IP</a></p>
+            </div>
+        </div>
+
+        <div class="projet">
+            <img src="img/sae34.jpg" alt="Audit de Sécurité et Pentesting">
+            <div class="titre">Cybersécurité & pentesting</div>
+            <div class="description">
+                <h3>Cybersécurité & pentesting</h3><br>
+                <p>
+                    Ce projet consistait à réaliser un audit de sécurité complet (Pentest) sur une infrastructure virtualisée cloisonnée. 
+                    L'objectif était d'identifier et d'exploiter les vulnérabilités d'un système d'information pour en évaluer la robustesse, en adoptant une approche "Grey Box".
+                    <br><br>
+                    J'ai déroulé la méthodologie standard d'attaque : reconnaissance, exploitation de failles critiques, et post-exploitation. 
+                    Un point clé de ce projet a été la mise en place de techniques de Pivoting pour atteindre des réseaux internes isolés et compromettre des serveurs non exposés directement.
+                    Le projet s'est conclu par une phase d'escalade de privilèges pour obtenir les droits administrateur, 
+                    suivie de la rédaction d'un rapport d'audit détaillant les failles et, surtout, un plan de remédiation priorisé pour sécuriser l'infrastructure.
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Méthodologie d'audit</li>
+                    <li>Outils offensifs (Kali Linux, Metasploit, Nmap)</li>
+                    <li>Techniques avancées (Pivoting réseau, Escalade de privilèges)</li>
+                    <li>Rapport d'audit et préconisations de sécurité</li>
+                </ul><br>
+                <p><a href="preuves/sae34.pdf" target="_blank">📎 Aperçu : rapport de pentest</a></p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <h2 class="categorie-titre">Télécommunications & IOT</h2>
+    <div class="grid-projets">
+        
+        <div class="projet">
+            <img src="img/sae13.jpg" alt="SAE13">
+            <div class="titre">Étude du câble coaxial</div>
+            <div class="description">
+                <h3>Étude du câble coaxial</h3><br>
+                <p>
+                    Ce projet avait pour objectif d’étudier théoriquement puis expérimentalement les propriétés d’un câble coaxial, 
+                    support de transmission de signaux numériques. Après une recherche documentaire sur l’histoire, la structure et 
+                    les principes de fonctionnement du câble (effet de peau, impédance, atténuation), un travail de simulation sous 
+                    Octave a été mené pour tracer l’atténuation en fonction de la fréquence.
+                    <br><br>
+                    Le projet a permis de comprendre concrètement les limitations physiques d’un support filaire historique toujours 
+                    utilisé dans certains domaines.
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Analyse d’un support de transmission</li>
+                    <li>Utilisation de Octave pour le traitement de données</li>
+                    <li>Mesures : atténuation, impédance, propagation</li>
+                    <li>Exploitation de données constructeur</li>
+                </ul><br>
+                <p><a href="preuves/sae13.pdf" target="_blank">📎 Aperçu : rapport</a></p>
+            </div>
+        </div>
+
+        <div class="projet">
+            <img src="img/sae22.jpg" alt="SAE22">
+            <div class="titre">Caractérisation de signaux & transmission</div>
+            <div class="description">
+                <h3>Caractérisation de signaux & transmission</h3><br>
+                <p>
+                     Ce projet avait pour objectif de mesurer et caractériser un système de transmission à travers deux volets : 
+                     des simulations Python de traitement de signal (quantification, filtrage, bruit) et une étude terrain autour 
+                     d’un réseau LoRa à basse consommation. Nous avons analysé les compromis entre portée, débit et consommation 
+                     selon différents paramètres techniques (spreading factor, bande passante, trame LoRa). 
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Analyse de signaux en temps et en fréquence</li>
+                    <li>Simulation sous Python de systèmes de transmission</li>
+                    <li>Utilisation de cartes LoRa pour mesures réelles</li>
+                </ul><br>
+                <p><a href="preuves/sae22.pdf" target="_blank">📎 Aperçu : rapport</a></p>
+            </div>
+        </div>
+
+        <div class="projet">
+            <img src="img/sae31.jpg" alt="Transmission TV">
+            <div class="titre">Transmission & diffusion TV numérique</div>
+            <div class="description">
+                <h3>Transmission & diffusion TV numérique</h3><br>
+                <p>
+                    Ce projet avait pour objectif d'analyser les chaînes de transmission de la télévision numérique, 
+                    en comparant la diffusion terrestre (DVB-T) et satellitaire (DVB-S). 
+                    À l'aide de mesureurs de champ professionnels, une étude complète des signaux a été réalisée : 
+                    analyse spectrale, visualisation des constellations et relevés de métriques de qualité (C/N, MER, BER).
+                    <br><br>
+                    Le projet a permis de comprendre concrètement les principes de modulation complexe (64-QAM, OFDM) 
+                    et les phénomènes de propagation (atténuation, "effet de falaise") propres aux transmissions sans fil.
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Analyse spectrale et mesures RF (C/N, MER, BER)</li>
+                    <li>Étude des standards DVB-T (Terrestre) et DVB-S (Satellite)</li>
+                    <li>Compréhension des modulations numériques (QAM, OFDM)</li>
+                    <li>Utilisation d'instrumentation spécifique (Mesureur de champ)</li>
+                </ul><br>
+                <p><a href="preuves/sae31.pdf" target="_blank">📎 Aperçu : compte-rendu</a></p>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <h2 class="categorie-titre">Développement & Programmation</h2>
+    <div class="grid-projets">
+        
+        <div class="projet">
+            <img src="img/portfolio.jpg" alt="Projet Web">
+            <div class="titre">Création de mon Portfolio</div>
+            <div class="description">
+                <h3>Création de mon Portfolio</h3><br>
+                <p>
+                    Ce projet consiste à développer mon propre site web personnel pour présenter mes projets, mes compétences et mon parcours. 
+                    Développé en HTML et CSS il devra respecter les principes du responsive design, afin qu’il soit consultable depuis tout type d’appareil.
+                    <br><br>
+                    Il intègre une page d’accueil, une galerie de projets, une section compétences et un formulaire de contact, tout en respectant les principes 
+                    d’accessibilité et de cohérence visuelle. 
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Développement web (HTML / CSS / JavaScript)</li>
+                </ul><br>
+                <p><a href="index.html">📎 Aperçu : site web</a></p>
+            </div>
+        </div>
+        
+        <div class="projet">
+            <img src="img/sae15_23_24.jpg" alt="SAE15/23/24">
+            <div class="titre">Photo & supervision d’un banc avionique</div>
+            <div class="description">
+                <h3>Photo & supervision d’un banc avionique</h3><br>
+                <p>
+                    L’objectif de ce projet était de prendre une photo avant chaque test ou sur demande, de l’archiver localement et de la rendre consultable via un site web sécurisé.
+                    <br><br>
+                    Le travail a couvert la réalisation d’un script Python pour piloter la caméra via un Raspberry Pi, la mise en place d’un capteur de luminosité connecté à un Pico WH, 
+                    ainsi que le développement d’un site web PHP/SQLite avec gestion de droits. L’ensemble devait fonctionner de manière autonome, sans Internet. 
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Développement Python</li>
+                    <li>Développement web (HTML, CSS, PHP, base de données SQLite)</li>
+                    <li>Microcontrôleurs (Pico WH)</li>
+                    <li>Gestion de projet en équipe autonome</li>
+                </ul><br>
+                <p><a href="preuves/sae15_23_24.pdf" target="_blank">📎 Aperçu : rapport</a></p>
+            </div>
+        </div>
+        
+        <div class="projet">
+            <img src="img/sae32.jpg" alt="Architecture Communicante">
+            <div class="titre">Développement d'applications communicantes</div>
+            <div class="description">
+                <h3>Développement d'applications communicantes</h3><br>
+                <p>
+                    Conception et déploiement d'une architecture logicielle complète faisant dialoguer des technologies hétérogènes. Le système repose sur une application Java de collecte de données qui alimente une base SQL centralisée, exposée ensuite via un service Web.
+                    <br><br>
+                    L'application Android native consomme ces flux via une API (format JSON) pour restituer l'état du réseau en temps réel à l'utilisateur. Ce projet a permis de maîtriser la chaîne de communication de bout en bout, du back-end au mobile.
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Développement Mobile (Android Studio)</li>
+                    <li>Programmation Java</li>
+                    <li>Architecture Web & API (Protocoles HTTP, JSON)</li>
+                    <li>Gestion de Base de Données (SQL)</li>
+                </ul><br>
+                <p><a href="preuves/sae32.pdf" target="_blank">📎 Aperçu : présentation</a></p>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+        // 1. Quand la page est chargée, on la fait apparaître
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // 2. Quand on clique sur un lien, on fait disparaître la page avant de changer
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const target = this.getAttribute('href');
+                // On vérifie que ce n'est pas un lien externe ou un mailto
+                if (target && !target.startsWith('#') && !target.startsWith('mailto:') && this.target !== '_blank') {
+                    e.preventDefault(); // On bloque le changement immédiat
+                    document.body.classList.remove('loaded'); // On lance le fondu vers le blanc
+                    setTimeout(() => {
+                        window.location.href = target; // On change de page après 400ms
+                    }, 400); 
+                }
+            });
+        });
+    </script>
+</body>
+</body>
+</html>
+<!-- Fenêtre modale -->
+    <div id="overlay" class="overlay">
+        <div class="modal">
+            <span class="close-btn" onclick="closeModal()">✖</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <style>
+        /* Overlay sombre */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Boîte centrale */
+        .modal {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            color: black;
+            position: relative;
+        }
+
+        /* Bouton fermer */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+
+    <script>
+        // Récupération des projets
+        const projets = document.querySelectorAll(".projet");
+        const overlay = document.getElementById("overlay");
+        const modalContent = document.getElementById("modal-content");
+
+        projets.forEach(projet => {
+            projet.addEventListener("click", (e) => {
+                e.preventDefault(); // empêche d’ouvrir directement le lien PDF/HTML
+                const description = projet.querySelector(".description").innerHTML;
+                modalContent.innerHTML = description;
+                overlay.style.display = "flex";
+            });
+        });
+
+        function closeModal() {
+            overlay.style.display = "none";
+        }
+
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                closeModal();
+            }
+        });
+    </script>
