@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>A Propos</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        main {
+            padding-bottom: 80px;
+        }
+
+        .section-titre {
+            color: #bf482b;
+            text-align: center;
+            margin: 60px 0 30px 0;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* --- STYLES EXPÉRIENCES (Timeline avec Image) --- */
+        .timeline {
+            max-width: 850px; /* Légèrement agrandi pour laisser respirer l'image et le texte */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .xp-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-left: 5px solid #bf482b;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 0 15px 15px 0;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+            backdrop-filter: blur(5px);
+            
+            /* Flexbox pour aligner texte et image */
+            display: flex;
+            align-items: center;
+            gap: 30px; /* Plus d'espace entre le texte et la photo */
+            justify-content: space-between;
+        }
+
+        .xp-card:hover {
+            transform: translateX(10px);
+            background: rgba(20, 10, 5, 0.85);
+        }
+
+        .xp-content {
+            flex: 1; /* Le texte prend la place restante */
+        }
+
+        /* L'image de l'expérience pro : Agrandie pour le format paysage */
+        .xp-image {
+            width: 280px; /* Plus large */
+            height: 180px; /* Plus haut */
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .xp-card:hover .xp-image {
+            transform: scale(1.03) rotate(1deg); /* Effet plus léger vu que l'image est plus grande */
+            border-color: #bf482b;
+        }
+
+        .xp-date {
+            color: #ffcdb2;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: inline-block;
+            border-bottom: 1px solid rgba(255, 205, 178, 0.3);
+            padding-bottom: 3px;
+        }
+
+        .xp-titre {
+            font-size: 1.4em;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .xp-entreprise {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .xp-desc {
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        .xp-desc ul {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .xp-desc li {
+            margin-bottom: 5px;
+        }
+
+        /* --- STYLES PASSIONS (Grille) --- */
+        .grid-passions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .passion-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s;
+        }
+
+        .passion-card:hover {
+            transform: translateY(-8px);
+            border-color: #bf482b;
+            box-shadow: 0 10px 20px rgba(191, 72, 43, 0.2);
+        }
+
+        /* NOUVEAU : Le style pour les icônes SVG */
+        .passion-icon {
+            color: #bf482b;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        /* L'icône grossit un peu quand on survole la carte entière */
+        .passion-card:hover .passion-icon {
+            transform: scale(1.15);
+        }
+
+        .passion-titre {
+            font-size: 1.2em;
+            color: #bf482b;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 800px) {
+            .grid-passions {
+                grid-template-columns: 1fr;
+            }
+            
+            .xp-card {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .xp-desc ul {
+                text-align: left; 
+                display: inline-block;
+            }
+            .xp-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">ACCUEIL</a>
+            <a href="projets.html">PROJETS</a>
+            <a href="competences.html">COMPÉTENCES</a>
+            <a href="apropos.html">À PROPOS</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="intro-card">
+            <h1>Qui suis-je ?</h1>
+            <p>
+                Mon intérêt pour l'informatique s'est toujours construit par l'expérimentation et la pratique, c'est ce qui m'a attiré vers les Réseaux et la Cybersécurité : 
+                configurer des équipements, chercher l'origine d'une panne, et sécuriser des architectures. 
+                Aujourd'hui, je recherche une alternance pour confronter cette passion technique aux véritables enjeux d'une entreprise.
+            </p>
+        </div>
+
+        <h2 class="section-titre">Expérience Professionnelle</h2>
+        <div class="timeline">
+            
+            <div class="xp-card">
+                <div class="xp-content">
+                    <span class="xp-date">Août 2025</span>
+                    <h3 class="xp-titre">Agent Portuaire (Emploi Saisonnier)</h3>
+                    <div class="xp-entreprise">Port la Napoule - Mandelieu-la-Napoule</div>
+                    <div class="xp-desc">
+                        Première immersion concrète dans le monde du travail. Cette expérience m'a permis de développer mon sens du service et mon adaptabilité face aux imprévus.
+                        <ul>
+                            <li>Assistance à l'amarrage et au départ des navires.</li>
+                            <li>Entretien des installations portuaires et surveillance des équipements.</li>
+                            <li>Accueil et orientation des plaisanciers.</li>
+                        </ul>
+                    </div>
+                </div>
+                <img src="img/port.jpg" alt="Port la Napoule" class="xp-image">
+            </div>
+
+        </div>
+
+        <h2 class="section-titre">Mes Passions</h2>
+        <div class="grid-passions">
+            
+            <div class="passion-card">
+                <div class="passion-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 14 4-4"/>
+                        <path d="M3.34 19a10 10 0 1 1 17.32 0"/>
+                    </svg>
+                </div>
+                <h3 class="passion-titre">Automobile</h3>
+                <p>Passionné par l'automobile en général, avec un attrait particulier pour le Rallye et le GT. J'apprécie la précision, la technique et l'ingénierie qui se cachent derrière ce milieu.</p>
+            </div>
+
+            <div class="passion-card">
+                <div class="passion-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                        <path d="M4 22h16"/>
+                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                    </svg>
+                </div>
+                <h3 class="passion-titre">Sport</h3>
+                <p>J'ai pratiqué le football plus jeune, ce qui m'a inculqué l'esprit d'équipe. J'ai également fait 6 ans de tennis, un sport qui m'a appris la persévérance et la maîtrise de soi.</p>
+            </div>
+
+            <div class="passion-card">
+                <div class="passion-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m8 3 4 8 5-5 5 15H2L8 3z"/>
+                    </svg>
+                </div>
+                <h3 class="passion-titre">Randonnée & Bivouac</h3>
+                <p>J'aime profiter du cadre exceptionnel de notre région pour partir en randonnée. C'est pour moi un excellent moyen de me ressourcer, de faire le vide et de cultiver mon endurance.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener('load', () => { document.body.classList.add('loaded'); });
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const target = this.getAttribute('href');
+                if (target && !target.startsWith('#') && !target.startsWith('mailto:') && this.target !== '_blank') {
+                    e.preventDefault();
+                    document.body.classList.remove('loaded');
+                    setTimeout(() => { window.location.href = target; }, 400); 
+                }
+            });
+        });
+    </script>
+</body>
+</html>

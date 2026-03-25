@@ -2,22 +2,23 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mes projets</title>
+    <title>Mes Projets</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .grid-projets {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            padding: 40px 60px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            padding: 40px 40px;
         }
 
         .projet {
             position: relative;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            height: 350px;
+            height: 280px;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .projet:hover {
@@ -78,6 +79,7 @@
             <a href="index.html">ACCUEIL</a>
             <a href="projets.html">PROJETS</a>
             <a href="competences.html">COMPÉTENCES</a>
+            <a href="apropos.html">À PROPOS</a>
             <a href="contact.html">CONTACT</a>
         </nav>
     </header>
@@ -162,6 +164,28 @@
             </div>
         </div>
 
+        <div class="projet">
+            <img src="img/tp409.jpg" alt="Sécurité LAN sur GNS3">
+            <div class="titre">Sécurisation LAN & Attaques (GNS3)</div>
+            <div class="description">
+                <h3>Topologie résiliente face aux menaces LAN</h3><br>
+                <p>
+                    Dans le cadre du module de sécurité dans les LAN, l'objectif était de concevoir de A à Z un scénario de Travaux Pratiques sur GNS3. 
+                    Le but : exploiter des vulnérabilités de couches 2 et 3 et configurer les parades adéquates sur des équipements d'interconnexion Cisco.
+                    <br><br>
+                    J'ai simulé et mis en œuvre des attaques réelles (MAC Flooding via Macof, ARP Poisoning via Arpspoof, DHCP Spoofing, VLAN Hopping, STP Spoofing). 
+                    Face à ces menaces, j'ai déployé les contre-mesures associées pour rendre le réseau résilient : Port Security, DHCP Snooping, Dynamic ARP Inspection (DAI) et BPDU Guard.
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Simulation d'infrastructures (GNS3)</li>
+                    <li>Offensif LAN (MAC Flooding, ARP Poisoning, etc.)</li>
+                    <li>Défensif Cisco (Port Security, DAI, tec.)</li>
+                </ul><br>
+                <p><a href="preuves/tp409.pdf" target="_blank">📎 Aperçu : Sujet de TP</a></p>
+            </div>
+        </div>
+
     </div>
 
 
@@ -201,7 +225,9 @@
                 <p>
                      Ce projet avait pour objectif de mesurer et caractériser un système de transmission à travers deux volets : 
                      des simulations Python de traitement de signal (quantification, filtrage, bruit) et une étude terrain autour 
-                     d’un réseau LoRa à basse consommation. Nous avons analysé les compromis entre portée, débit et consommation 
+                     d’un réseau LoRa à basse consommation. 
+                     <br><br>
+                     Nous avons analysé les compromis entre portée, débit et consommation 
                      selon différents paramètres techniques (spreading factor, bande passante, trame LoRa). 
                 </p><br>
                 <strong>Compétences utilisées :</strong>
@@ -307,6 +333,31 @@
                 <p><a href="preuves/sae32.pdf" target="_blank">📎 Aperçu : présentation</a></p>
             </div>
         </div>
+
+        <div class="projet">
+            <img src="img/powershell.jpg" alt="Automatisation PowerShell et Active Directory">
+            <div class="titre">Automatisation d'Active Directory</div>
+            <div class="description">
+                <h3>Scripting PowerShell & Déploiement AD</h3><br>
+                <p>
+                    Ce projet d'administration système visait à automatiser la gestion du cycle de vie des utilisateurs au sein d'un environnement Active Directory simulé. 
+                    J'ai d'abord monté un Lab complet (Windows Server 2025 et client Windows 11) en configurant les rôles AD DS, DNS et DHCP entièrement en ligne de commande.
+                    <br><br>
+                    J'ai ensuite développé un script PowerShell avancé permettant l'importation en masse de comptes à partir de fichiers CSV. 
+                    Ce script gère la création des utilisateurs, la génération de leurs dossiers personnels avec des droits NTFS stricts (via le module NTFSSecurity), ainsi que la suppression sécurisée incluant l'archivage ZIP des données. 
+                    Le code intègre la gestion des erreurs, des logs horodatés et supporte le paramètre -WhatIf.
+                </p><br>
+                <strong>Compétences utilisées :</strong>
+                <ul><br>
+                    <li>Scripting système avancé (PowerShell)</li>
+                    <li>Administration Windows Server (AD, DNS, DHCP)</li>
+                    <li>Automatisation (fichiers CSV, logs, archivage ZIP)</li>
+                    <li>Gestion de la sécurité et des droits d'accès (NTFS)</li>
+                </ul><br>
+                <p><a href="preuves/script.ps1" target="_blank">📎 Aperçu : Script Active Directory</a></p>
+            </div>
+        </div>
+
     </div>
 </main>
 <script>
